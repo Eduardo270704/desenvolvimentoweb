@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ex2 - iniciante</title>
+  </head>
+  <body>
+    <input id="nome" placeholder="Digite um nome" onkeyup="destacar()" />
+    <ol class="listaDeNomes">
+      <li>João</li>
+      <li>Claudio</li>
+      <li>Márcio</li>
+    </ol>
+    <script>
+        function destacar(){
+            var nome=document.querySelector("#nome").value.toUpperCase();
+            var lista=document.querySelector(".listaDeNomes");
+            var listaDeNomes=lista.querySelectorAll("li");
+            var novaLista=[];
+            for(var i=0; i<listaDeNomes.length; i++){
+                var nomeAtual=listaDeNomes[i].textContent.toUpperCase();
+                if(nomeAtual.startsWith(nome)){
+                    var li = document.createElement("li");
+                    var strong = document.createElement("strong");
+                    strong.innerText = listaDeNomes[i].textContent;
+                    li.appendChild(strong);
+                    novaLista.push(li);
+                }
+                else{
+                    var li = document.createElement("li");
+                    li.innerText = listaDeNomes[i].textContent;
+                    novaLista.push(li);
+                }
+            }
+            lista.innerHTML="";
+            for(var i = 0; i<novaLista.length; i++){
+                lista.appendChild(novaLista[i]);
+            }
+        }
+    </script>
+  </body>
+</html>

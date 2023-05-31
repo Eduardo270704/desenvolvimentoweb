@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Ex1 - iniciante</title>
+</head>
+<body>
+    <input id="n" placeholder="Digite um número" onkeyup="mostrarTabuada()">
+    <div id="r"></div>
+    <script>
+        function mostrarTabuada(){
+            var numero=document.querySelector("#n");
+            var resultado=document.querySelector("#r");
+            resultado.innerText="";
+            for (var i = 0; i <= 10; i++){
+                var div=document.createElement("div");
+                div.innerText=numero.value*i;
+                resultado.appendChild(div);
+            }
+        }
+    </script>
+</body>
+</html>
